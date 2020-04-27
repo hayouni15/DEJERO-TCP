@@ -23,11 +23,16 @@ $ python client.py -p 10000
 ```
 expected output:
 >connection from  127.0.0.1 on Port  127.0.0.1
-[ 127.0.0.1 : 56805 ] [Hello]  [ 0 ]  []
-[ 127.0.0.1 : 56805 ] [Data]  [ 5 ]  ['0x01', '0x02', '0x03', '0x04', '0x05']
-[ 127.0.0.1 : 56805 ] [Goodbye]  [ 0 ]  []
-no more data from ('127.0.0.1', 56805)
-waiting for a connection
+
+>[ 127.0.0.1 : 56805 ] [Hello]  [ 0 ]  []
+
+>[ 127.0.0.1 : 56805 ] [Data]  [ 5 ]  ['0x01', '0x02', '0x03', '0x04', '0x05']
+
+>[ 127.0.0.1 : 56805 ] [Goodbye]  [ 0 ]  []
+
+>no more data from ('127.0.0.1', 56805)
+
+>waiting for a connection
 
 
 
