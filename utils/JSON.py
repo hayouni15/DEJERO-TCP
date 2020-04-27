@@ -1,30 +1,32 @@
 import json
 import datetime
+from utils import colors
 
-def write_json(data,client):
+
+def write_json(data, client):
+
     json_data = {}
-
-    json_data['client']={
-        'ip':client[0],
+    timestamp = datetime.datetime.now().strftime("%m-%d-%Y@%H-%M-%S")
+    # add time stamp to json file
+    json_data['timestamp'] = timestamp
+    # add client info to json file
+    json_data['client'] = {
+        'ip': client[0],
         'port': client[1]
     }
-
-    json_data['data']=[]
+    # add data to json file
+    json_data['data'] = []
 
     for blob in data:
-        value=[]
-        for val in blob.value :
-            value.append(val.decode('ascii'))
+        value = []
+        for val in blob.value:
+            value.append('0x' + val.decode('ascii'))
         json_data['data'].append({
             'type': blob.type.decode('ascii'),
-            'length':blob.length,
-            'value':value
+            'length': blob.length,
+            'value': value
         })
-
-    print('TLV-Json saved :',json_data)
-
     # Serializing json
-    file_path='history/'+datetime.datetime.now().strftime("%m-%d-%Y@%H-%M-%S")+'.json'
-    print (name)
-    with open(name, 'w') as outfile:
+    file_path = 'history/' + timestamp + '.json'
+    with open(file_path, 'w') as outfile:
         json.dump(json_data, outfile)
