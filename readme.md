@@ -2,15 +2,6 @@
 
 This project is an implementation of a TCP listening socket bound to an IP address and and a port number provided by the user as a command-line argument.
 
-
-# Content
-| Folder|Files |
-| ------ | ------ |
-| Main|server.py|
-| Client| client.py |
-| Utils| Json.py ,parser.py, tlv.py |
-| History| |
-
 # Test
 
 Start the server:
@@ -46,37 +37,39 @@ server.py saves the received message in Json format in the history folder:
 
 ```json
 {
-"timestamp": "04-27-2020@09-35-08",
-"client": {
-"ip": "127.0.0.1",
-"port": 56619
-},
-"data": [
-{
-"type": "E110",
-"length": 0,
-"value": []
-},
-{
-"type": "DA7A",
-"length": 5,
-"value": [
-"0x01",
-"0x02",
-"0x03",
-"0x04",
-"0x05"
-]
-},
-{
-"type": "0B1E",
-"length": 0,
-"value": []
-}
-]
+    "timestamp": "04-27-2020@09-35-08",
+    "client": 
+    {
+        "ip": "127.0.0.1",
+        "port": 56619
+    },
+    "data": 
+    [
+        {
+        "type": "E110",
+        "length": 0,
+        "value": []
+        },
+        {
+        "type": "DA7A",
+        "length": 5,
+        "value": [
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x04",
+        "0x05"
+        ]
+        },
+        {
+        "type": "0B1E",
+        "length": 0,
+        "value": []
+        }
+    ]
 }
 ```
-to replay hisotory , specefy file from the history directory using the -r argument as follows:
+to replay hisotory , specify file from the history directory using the -r argument as follows:
 ```sh
 $ python server.py -r 04-27-2020@09-35-08.json
 ```

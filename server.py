@@ -41,11 +41,6 @@ def replay(file):
         # if file is not found
         print("File doesn't exist, use a valid file name")
 
-    
-
-
-
-####################################################################################################
 
 def main():
     args = argv()
