@@ -51,7 +51,7 @@ $ python test.py -p 10000 -t test4
 
 
 
-## History
+# History
 
 server.py saves the received message in Json format in the history folder:
 
