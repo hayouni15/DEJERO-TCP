@@ -51,7 +51,7 @@ def main():
         # Create a TCP/IP socket
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # Bind the socket to the port
-        server_address = ('localhost', int(args.port))
+        server_address = ('', int(args.port))
         print(colors.Green + "Server Starting on: ", server_address)
         server.bind(server_address)
 
@@ -63,11 +63,11 @@ def main():
             print(colors.Blue + 'waiting for a connection' + colors.White)
             connection, client_address = server.accept()
             try:
-                print(colors.Green + 'connection from ', client_address[0], 'on Port ', client_address[0])
+                print(colors.Green + 'connection from ', client_address[0], 'on Port ', client_address[1])
 
                 # Receive the data in small chunks and retransmit it
                 while True:
-                    data = connection.recv(4096)
+                    data = connection.recv(1024)
 
                     if data:
                         p = Parser(data)
@@ -80,6 +80,7 @@ def main():
                     else:
                         print(colors.Red + 'no more data from', client_address)
                         break
+
 
             finally:
                 # Clean up the connection

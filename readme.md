@@ -10,19 +10,21 @@ $ python server.py -p 10000
 ```
 expected output:
 >Server Starting on:  ('localhost', 10000)
-waiting for a connection
+
+>waiting for a connection
 
 connecting from client and sending data:
 in a new terminal, change directory to client folder :
 ```sh
 $ cd client
 ```
-connect on the same port and send data:
+connect on the same port and perform one of the following built in tests:
+## test1 : test simple client connecting and sending data
 ```sh
-$ python client.py -p 10000
+$ python test.py -p 10000 -t test1
 ```
 expected output:
->connection from  127.0.0.1 on Port  127.0.0.1
+>connection from  127.0.0.1 on Port  56805
 
 >[ 127.0.0.1 : 56805 ] [Hello]  [ 0 ]  []
 
@@ -33,6 +35,19 @@ expected output:
 >no more data from ('127.0.0.1', 56805)
 
 >waiting for a connection
+## test2 : test a big number of connections
+```sh
+$ python test.py -p 10000 -t test2
+```
+## test3 : test a big number of simultanious connections
+```sh
+$ python test.py -p 10000 -t test3
+```
+## test4 :  test sending big data
+```sh
+$ python test.py -p 10000 -t test4
+```
+
 
 
 
