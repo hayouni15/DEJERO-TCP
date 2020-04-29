@@ -9,7 +9,7 @@ Start the server:
 $ python server.py -p 10000
 ```
 expected output:
->Server Starting on:  ('localhost', 10000)
+>Server Starting on:  ('', 10000)
 
 >waiting for a connection
 
