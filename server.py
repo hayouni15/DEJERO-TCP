@@ -36,7 +36,7 @@ def replay(file):
                   data['timestamp'].split('@')[1], ':')
             for blob in data['data']:
                 print(colors.Blue, '[',data['client']['ip'], ']:[', data['client']['port'], ']', colors.White,
-                      get_type(blob['type']), '] [', blob['length'], ']', blob['value'])
+                      '[',get_type(blob['type']), '] [', blob['length'], ']', blob['value'])
     else:
         # if file is not found
         print("File doesn't exist, use a valid file name")
