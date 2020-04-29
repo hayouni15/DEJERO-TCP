@@ -1,6 +1,6 @@
 from utils.tlv import TLV
 from utils import colors
-
+from struct import *
 
 class Parser:
     def __init__(self, message):
@@ -28,7 +28,7 @@ class Parser:
         data_length = message[0:8]
         message = message[8:]
         return int(data_length, 16), message
-        # return data_length,message
+
 
     def get_data(self, length, message):
         n = 2

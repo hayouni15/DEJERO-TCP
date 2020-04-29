@@ -16,7 +16,6 @@ class CLIENT:
         sock.connect(server_address)
         try:
             # Send data
-            #message = b'E11000000000DA7A0000000501020304050B1E00000000'
             message=self.message
             print ( 'sending "%s"' % message)
             sock.sendall(message)
@@ -27,7 +26,7 @@ class CLIENT:
             amount_expected = len(message)
 
             while amount_received < amount_expected:
-                data = sock.recv(4096)
+                data = sock.recv(1024)
                 amount_received += len(data)
                 print ( 'received "%s"' % data)
 

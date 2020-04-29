@@ -24,7 +24,7 @@ def test2(port):
         client1.send()
 def test4(port):
     msg=b'E11000000000DA7A000003E8'
-    for i in range(0,1000):
+    for i in range(0,500):
         msg+=b'01'
     msg+=b'0B1E00000000'
     print('data length: ',len(msg))
