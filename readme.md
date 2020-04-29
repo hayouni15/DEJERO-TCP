@@ -39,7 +39,7 @@ expected output:
 ```sh
 $ python test.py -p 10000 -t test2
 ```
-## test3 : test a big number of simultanious connections
+## test3 : test simultanious connections
 ```sh
 $ python test.py -p 10000 -t test3
 ```
