@@ -35,7 +35,7 @@ def replay(file):
             print(colors.Green, 'TLV blob received on', data['timestamp'].split('@')[0], 'at',
                   data['timestamp'].split('@')[1], ':')
             for blob in data['data']:
-                print(colors.Blue, data['client']['ip'], ']:[', data['client']['port'], ']', colors.White,
+                print(colors.Blue, '[',data['client']['ip'], ']:[', data['client']['port'], ']', colors.White,
                       get_type(blob['type']), '] [', blob['length'], ']', blob['value'])
     else:
         # if file is not found
