@@ -1,6 +1,8 @@
 from client import CLIENT
 import argparse
 from threading import Thread
+import datetime
+from concurrent.futures import ThreadPoolExecutor
 
 def argv():
     # Create parser
@@ -44,9 +46,23 @@ def main():
         test2(args.port)
 
     if args.test == 'test3':
-        #test3 a big number of simultanious connections
-        for i in range (0,50):
-            Thread(target = test1(args.port)).start()
+        #test3 10 simultanious connections
+        executors_list = []
+        # 5 simultanious connections are accepted and the rest are handled as 
+        # empty slot in the queue are available.
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            executors_list.append(executor.submit(test1, args.port))
+            executors_list.append(executor.submit(test1, args.port))
+            executors_list.append(executor.submit(test1, args.port))
+            executors_list.append(executor.submit(test1, args.port))
+            executors_list.append(executor.submit(test1, args.port))
+            executors_list.append(executor.submit(test1, args.port))
+            executors_list.append(executor.submit(test1, args.port))
+            executors_list.append(executor.submit(test1, args.port))
+            executors_list.append(executor.submit(test1, args.port))
+            executors_list.append(executor.submit(test1, args.port))
+
+
 
     if args.test == 'test4':
         #test2 : test sending big data
